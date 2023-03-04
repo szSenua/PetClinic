@@ -4,8 +4,9 @@ using System.Diagnostics;
 using System.Windows;
 
 using System.Windows.Input;
-using SQLite;
-using SQLitePCL;
+using MySqlConnector;
+
+
 
 
 
@@ -57,63 +58,78 @@ namespace PetClinic
 
         }
 
+        //Botón registro
         public void btn_register_Click(object sender, RoutedEventArgs e)
         {
-            string dbname = "vetsys.db";
-            if (!System.IO.File.Exists(dbname)) {
-
-                Console.Write("Generando " + dbname);
-
-
-                var db_create = new SQLiteConnection(dbname, SQLiteOpenFlags.Create | SQLiteOpenFlags.FullMutex | SQLiteOpenFlags.ReadWrite);
-                db_create.CreateTable<Clientes>();
-                db_create.CreateTable<Mascota>();
-                db_create.Close();
-
-            }
-            int edadconvertida;
-            int pesoconvertido;
-
-            var cliente = new Clientes()
+            var builder = new MySqlConnectionStringBuilder
             {
-                DNI = dnitext.Text,
-                nombre = nombretext.Text,
-                apellidos = apellidotext.Text,
-                direccion = direcciontext.Text,
-                telefono = telefonotext.Text,
-                email = emailtext.Text
-
+                Server = "vps.azuredragoon.com",
+                UserID = "dam2",
+                Password = "1234",
+                Database = "veterinaria",
             };
 
-            bool success1 = int.TryParse(edadmascotatext.Text.ToString(), out edadconvertida);
-            bool success2 = int.TryParse(pesomascotatext.Text.ToString(), out pesoconvertido);
+            var connection = new MySqlConnection(builder.ConnectionString);
+            connection.Open();
+
+            var command = connection.CreateCommand();
+            command.CommandText = @"INSERT INTO clientes(DNI, nombre, apellidos, direccion, telefono, email)
+                                  VALUES (@dni,@nombre,@apellidos,@direccion,@telefono,@email)";
+            command.Parameters.AddWithValue("@dni", dnitext.Text);
+            command.Parameters.AddWithValue("@nombre", nombretext.Text);
+            command.Parameters.AddWithValue("@apellidos", apellidotext.Text);
+            command.Parameters.AddWithValue("@direccion", direcciontext.Text);
+            command.Parameters.AddWithValue("@telefono", telefonotext.Text);
+            command.Parameters.AddWithValue("@email", emailtext.Text);
+
+            var command2 = connection.CreateCommand();
+            command2.CommandText = @"INSERT INTO mascota(DNI_Cliente, nombre, raza, edad, peso)
+                                    VALUES (@dni_cliente, @nombre, @raza, @edad, @peso)";
+
+            command2.Parameters.AddWithValue("@dni_cliente", dnitext.Text);
+            command2.Parameters.AddWithValue("@nombre", nombremascotatext.Text);
+            command2.Parameters.AddWithValue("@raza", razamascotatext.Text);
+            command2.Parameters.AddWithValue("@edad", edadmascotatext.Text);
+            command2.Parameters.AddWithValue("@peso", pesomascotatext.Text);
+
+            
+
+            int row = command.ExecuteNonQuery();
+            int row2 = command2.ExecuteNonQuery();
+
+            
 
 
-            var mascota = new Mascota()
+            if(row > 0 && row2 > 0)
             {
-                nombre = nombremascotatext.Text,
-                raza = razamascotatext.Text,
-
-                edad = edadconvertida,
-                DNI_Cliente = dnitext.Text,
-
-                peso = pesoconvertido
-            };
-
-            try
-            {
-                var db = new SQLiteConnection("vetsys.db");
-
-                db.Tracer = new Action<string>(q => Debug.WriteLine(q));
-                db.Trace = true;
-                int rowcliente = db.Insert(cliente);
-                int rowMascota = db.Insert(mascota);
-                db.Close();
+                MessageBox.Show("Se ha realizado el registro correctamente.");
             }
-            catch (SQLiteException sqle)
+            else
             {
-                Console.WriteLine(sqle);
+                MessageBox.Show("Se ha producido un problema");
             }
+
+            //Limpiar los textbox
+            dnitext.Text = String.Empty;
+            nombretext.Text = String.Empty;
+            apellidotext.Text = String.Empty;
+            direcciontext.Text = String.Empty;
+            telefonotext.Text = String.Empty;
+            emailtext.Text = String.Empty;
+            nombremascotatext.Text = String.Empty;
+            razamascotatext.Text = String.Empty;
+            edadmascotatext.Text = String.Empty;
+            pesomascotatext.Text = String.Empty;
+            
+
+
+
+
+
+
+
+
+            //MessageBox.Show(cliente.DNI.ToString() + cliente.nombre.ToString() + cliente.apellidos.ToString());
 
             //if (rowcliente > 0 && rowMascota > 0)
             //{

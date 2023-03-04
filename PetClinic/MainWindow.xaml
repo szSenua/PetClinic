@@ -483,6 +483,8 @@
                                                     Content="Enviar"
                                                     Margin="10"
                                                     FontSize="20"
+                                                    Foreground="white"
+                                                    Background="#311804"
                                                     Click="btn_register_Click"
                                                      />
 
