@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="PetClinic.UserControls.AddButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Name="addButton">
+    <Button Width="300"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Right"
+            Style="{StaticResource addButton}">
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="{Binding ElementName=addButton,Path=Title}" 
+                       VerticalAlignment="Center"/>
+
+            <Border Margin="20 0 0 0"
+                    Width="37"
+                    Padding="10"
+                    Background="#3256f1"
+                    CornerRadius="50">
+                <Image Source="../Images/user_menu.png" />
+
+            </Border>
+
+        </StackPanel>
+        
+    </Button>
+</UserControl>

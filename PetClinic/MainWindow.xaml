@@ -1,0 +1,516 @@
+﻿<Window x:Class="PetClinic.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        
+        xmlns:uc="clr-namespace:PetClinic.UserControls"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="720" 
+        Width="1080"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Name="window">
+    <Border Background="White"
+            Padding="30"
+            CornerRadius="25"
+            MouseDown="Border_MouseDown"
+            MouseLeftButtonDown="Border_MouseLeftButtonDown">
+
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            
+            <!--Menu-->
+
+            <Border CornerRadius="10"
+                    Background="#311804">
+
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="1"
+                                      BlurRadius="20"
+                                      Opacity="0.4" />
+                </Border.Effect>
+
+                <Grid>
+                    <StackPanel>
+                        <Button Style="{StaticResource menuButton}"
+                                Margin="15 40 15 20"
+                                Background="#FFFFFF">
+
+                            <Button.Triggers>
+                                <EventTrigger RoutedEvent="Button.Click">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="mainPage"
+                                                             Storyboard.TargetProperty="(Border.RenderTransform).(TranslateTransform.Y)"
+                                                             To="0"
+                                                             Duration="0:0:0.5"/>
+
+                                            <DoubleAnimation Storyboard.TargetName="secondPage"
+                                                             Storyboard.TargetProperty="(Border.RenderTransform).(TranslateTransform.Y)"
+                                                             To="{Binding ElementName=window,Path=ActualHeight}"
+                                                             Duration="0:0:0.3" />
+
+                                            <DoubleAnimation Storyboard.TargetName="mainPage"
+                                                             Storyboard.TargetProperty="Opacity"
+                                                             To="1.0"
+                                                             Duration="0:0:0.5" />
+
+                                            <DoubleAnimation Storyboard.TargetName="secondPage"
+                                                             Storyboard.TargetProperty="Opacity"
+                                                             To="0.0"
+                                                             Duration="0:0:0.5" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                    
+                                </EventTrigger>
+                            </Button.Triggers>
+                            <Image Source="/Images/home.png" 
+                                   Width="20"/>
+                        </Button>
+                        <Button Style="{StaticResource menuButton}">
+
+                            <Button.Triggers>
+                                <EventTrigger RoutedEvent="Button.Click">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="mainPage"
+                                                             Storyboard.TargetProperty="(Border.RenderTransform).(TranslateTransform.Y)"
+                                                             To="{Binding ElementName=window,Path=ActualHeight}"
+                                                             Duration="0:0:0.3" />
+
+                                            <DoubleAnimation Storyboard.TargetName="secondPage"
+                                                             Storyboard.TargetProperty="(Border.RenderTransform).(TranslateTransform.Y)"
+                                                             To="0"
+                                                             Duration="0:0:0.5" />
+
+                                            <DoubleAnimation Storyboard.TargetName="mainPage"
+                                                             Storyboard.TargetProperty="Opacity"
+                                                             To="0.0"
+                                                             Duration="0:0:0.5" />
+
+                                            <DoubleAnimation Storyboard.TargetName="secondPage"
+                                                             Storyboard.TargetProperty="Opacity"
+                                                             To="1.0"
+                                                             Duration="0:0:0.5" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+
+                                </EventTrigger>
+                            </Button.Triggers>
+
+                            <Image Source="/Images/user_menu.png"
+                                   Width="20" />
+                        </Button>
+                        <Button Style="{StaticResource menuButton}">
+                            <Image Source="/Images/user_menu.png"
+                                   Width="20" />
+                        </Button>
+                        <Button Style="{StaticResource menuButton}">
+                            <Image Source="/Images/user_menu.png"
+                                   Width="20" />
+                        </Button>
+
+                        <Button Style="{StaticResource menuButton}">
+                            <Image Source="/Images/user_menu.png"
+                                   Width="20" />
+                        </Button>
+
+                        <Button Style="{StaticResource menuButton}">
+                            <Image Source="/Images/user_menu.png"
+                                   Width="20" />
+                        </Button>
+
+
+
+                    </StackPanel>
+
+                    <!--Estilo para el último botón-->
+
+                    <Button Style="{StaticResource menuButton}"
+                            Margin="15 0 15 25"
+                            VerticalAlignment="Bottom">
+                        <Image Source="/Images/logout.png"
+                               Width="20" />
+                    </Button>
+
+                </Grid>
+                
+                
+            </Border>
+
+            <!--Termina menu-->
+            
+            
+            <!--Página principal-->
+            <Border x:Name="mainPage" Style="{StaticResource borderPage}">
+                <Border.RenderTransform>
+                    <TranslateTransform Y="0" />
+
+                </Border.RenderTransform>
+
+                <Border CornerRadius="25">
+                    <Border.Background>
+                        <ImageBrush Stretch="Fill"
+                                    Opacity="0.6"
+                                    ImageSource="/Images/vet.png" />
+                    </Border.Background>
+
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+                        
+                        <!-- Titulos -->
+                        <StackPanel VerticalAlignment="Center"
+                                    Margin="60 0 0 0">
+
+                            <TextBlock Text="Controlling"
+                                       Foreground="#FFFFFF"
+                                       FontSize="22"/>
+
+                            <TextBlock Text="Texto 2"
+                                       Foreground="#ffffff" 
+                                       Margin="0 10"
+                                       FontSize="36"
+                                       FontWeight="Bold"
+                                       TextWrapping="Wrap"/>
+
+                            <TextBlock Foreground="#ffffff"
+                                       FontSize="32">
+                                <Run Text="32" /><Run FontWeight="Thin"
+                                                      FontSize="26" 
+                                                      Text="ºc"/>
+                            </TextBlock>
+                            <TextBlock Text="Celecious"
+                                       Foreground="#ffffff"
+                                       FontSize="12"
+                                       Margin="15 0 0 0">
+                                
+                                
+                            </TextBlock>
+
+                        </StackPanel>
+                        
+                        <!-- Paneles -->
+                        <StackPanel Grid.Column="1" 
+                                    VerticalAlignment="Center"
+                                    Margin="0 0 50 0">
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                
+                                <!--Cards-->
+
+                                <uc:Card Grid.Row="0"
+                                         Grid.Column="0" 
+                                         Margin="0 0 8 8"
+                                         ImageOn="/Images/home.png"
+                                         ImageOff="/Images/user_menu_2.png"/>
+
+                                <uc:Card Grid.Row="0"
+                                         Grid.Column="1"
+                                         Margin="0 0 0 8"
+                                         ImageOn="/Images/home.png"
+                                         ImageOff="/Images/user_menu_2.png" />
+
+                                <uc:Card Grid.Row="1"
+                                         Grid.Column="0"
+                                         Margin="0 0 0 0"
+                                         ImageOn="/Images/home.png"
+                                         ImageOff="/Images/user_menu_2.png" />
+
+                                <uc:Card Grid.Row="1"
+                                         Grid.Column="1"
+                                         Margin="0 0 0 0"
+                                         ImageOn="/Images/home.png"
+                                         ImageOff="/Images/user_menu_2.png" />
+
+                            </Grid>
+                            
+                            <!--Button-->
+
+                            <uc:AddButton Title="Añade algo"
+                                          Grid.Column="1"
+                                          Margin="0 50 0 0"
+                                          HorizontalAlignment="Center" />
+
+                        </StackPanel>
+                    </Grid>
+                    
+                </Border>
+                
+                
+            </Border>
+            <!--Termina página principal-->
+            
+            <!--Segunda página-->
+
+            <Border x:Name="secondPage"
+                    Style="{StaticResource borderPage}">
+                <Border.RenderTransform>
+                    <TranslateTransform Y="{Binding ElementName=window,Path=ActualHeight}" />
+
+                </Border.RenderTransform>
+
+                <Border CornerRadius="25">
+                    <Border.Background>
+                        <ImageBrush Stretch="Fill"
+                                    Opacity="0.6"
+                                    ImageSource="/Images/page2.png" />
+                    </Border.Background>
+
+
+                    <Grid>
+                        <StackPanel Margin="20">
+                            <TextBlock Text="Registro"
+                                       Foreground="White"
+                                       FontSize="28"
+                                       HorizontalAlignment="Left"
+                                       Margin="0,0,0,20" />
+
+
+
+                            <StackPanel Orientation="Horizontal"
+                                        HorizontalAlignment="Center">
+
+
+                            <!--Grid principal segunda página-->
+                                <Grid Width="650"
+                                      Height="470">
+
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="90" />
+                                        <ColumnDefinition Width="230" />
+                                        <ColumnDefinition Width="100" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <StackPanel Grid.Column="0">
+
+                                        <TextBlock HorizontalAlignment="Left"
+                                                   Foreground="White"
+                                                   Height="40"
+                                                   Margin="10"
+                                                   FontSize="16"
+                                                   Text="DNI" />
+
+                                        <TextBlock HorizontalAlignment="Left"
+                                                   Foreground="White"
+                                                   Height="40"
+                                                   Margin="10"
+                                                   FontSize="16"
+                                                   Text="Nombre" />
+
+                                        <TextBlock HorizontalAlignment="Left"
+                                                   Foreground="White"
+                                                   Height="40"
+                                                   Margin="10"
+                                                   FontSize="16"
+                                                   Text="Apellido" />
+
+                                        <TextBlock HorizontalAlignment="Left"
+                                                   Foreground="White"
+                                                   Height="40"
+                                                   Margin="10"
+                                                   FontSize="16"
+                                                   Text="Dirección" />
+
+                                        <TextBlock HorizontalAlignment="Left"
+                                                   Foreground="White"
+                                                   Height="40"
+                                                   Margin="10"
+                                                   FontSize="16"
+                                                   Text="Teléfono" />
+
+                                        <TextBlock HorizontalAlignment="Left"
+                                                   Foreground="White"
+                                                   Height="40"
+                                                   Margin="10"
+                                                   FontSize="16"
+                                                   Text="Email" />
+
+
+
+
+                                    </StackPanel>
+
+                                    <Border Grid.Column="1">
+                                        <!-- Elementos de la primera sección -->
+                                        <StackPanel>
+
+                                            <TextBox Width="200"
+                                                     Height="40"
+                                                     Margin="10"
+                                                     FontSize="16"
+                                                     x:Name="dnitext"
+                                                      />
+
+                                            <TextBox Width="200"
+                                                     Height="40"
+                                                     Margin="10"
+                                                     FontSize="16"
+                                                     x:Name="nombretext"
+                                                      />
+
+                                            <TextBox Width="200"
+                                                     Height="40"
+                                                     Margin="10"
+                                                     FontSize="16"
+                                                     x:Name="apellidotext"
+                                                      />
+
+                                            <TextBox Width="200"
+                                                     Height="40"
+                                                     Margin="10"
+                                                     FontSize="16"
+                                                     x:Name="direcciontext"
+                                                      />
+
+                                            <TextBox Width="200"
+                                                     Height="40"
+                                                     Margin="10"
+                                                     FontSize="16"
+                                                     x:Name="telefonotext"
+                                                      />
+
+                                            <TextBox Width="200"
+                                                     Height="40"
+                                                     Margin="10"
+                                                     FontSize="16"
+                                                     x:Name="emailtext"
+                                                      />
+
+
+
+                                        </StackPanel>
+
+
+                                    </Border>
+
+                                    <Border Grid.Column="2">
+
+                                        <StackPanel Margin="0,43,0,0">
+                                            <TextBlock HorizontalAlignment="Left"
+                                                       Foreground="White"
+                                                       Height="40"
+                                                       Margin="10"
+                                                       FontSize="16"
+                                                       Text="Nombre" />
+
+                                            <TextBlock HorizontalAlignment="Left"
+                                                       Foreground="White"
+                                                       Height="40"
+                                                       Margin="10"
+                                                       FontSize="16"
+                                                       Text="Raza" />
+
+                                            <TextBlock HorizontalAlignment="Left"
+                                                       Foreground="White"
+                                                       Height="40"
+                                                       Margin="10"
+                                                       FontSize="16"
+                                                       Text="Edad" />
+
+                                            <TextBlock HorizontalAlignment="Left"
+                                                       Foreground="White"
+                                                       Height="40"
+                                                       Margin="10"
+                                                       FontSize="16"
+                                                       Text="Peso" />
+                                        </StackPanel>
+
+                                    </Border>
+                                    <Border Grid.Column="3">
+
+
+                                        <StackPanel>
+                                            <!-- Elementos de la segunda sección -->
+
+
+
+                                            <TextBlock Text="Datos Mascota"
+                                                       Foreground="White"
+                                                       FontSize="28"
+                                                       HorizontalAlignment="Center" />
+
+                                            <TextBox Width="200"
+                                                     Height="40"
+                                                     Margin="10"
+                                                     FontSize="16"
+                                                     x:Name="nombremascotatext"
+                                                      />
+
+                                            <TextBox Width="200"
+                                                     Height="40"
+                                                     Margin="10"
+                                                     FontSize="16"
+                                                     x:Name="razamascotatext"
+                                                      />
+
+                                            <TextBox Width="200"
+                                                     Height="40"
+                                                     Margin="10"
+                                                     FontSize="16"
+                                                     x:Name="edadmascotatext"
+                                                     />
+
+                                            <TextBox Width="200"
+                                                     Height="40"
+                                                     Margin="10"
+                                                     FontSize="16"
+                                                     x:Name="pesomascotatext"
+                                                      />
+
+                                            <Button Height="40"
+                                                    Width="200"
+                                                    Content="Enviar"
+                                                    Margin="10"
+                                                    FontSize="20"
+                                                    Click="btn_register_Click"
+                                                     />
+
+                                            <!--Añadir funcionalidad boton-->
+
+                                            <!--Pensar qué pongo aquí -->
+
+                                        </StackPanel>
+                                    </Border>
+                                </Grid>
+
+                            </StackPanel>
+
+                        </StackPanel>
+
+
+
+
+
+                    </Grid>
+
+                </Border>
+
+
+            </Border>
+
+        </Grid>
+        
+        
+    </Border>
+</Window>
