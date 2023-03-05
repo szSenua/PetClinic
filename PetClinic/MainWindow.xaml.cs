@@ -1,11 +1,12 @@
 ﻿
 using System;
+using System.Data;
 using System.Diagnostics;
 using System.Windows;
-
+using System.Windows.Forms;
 using System.Windows.Input;
 using MySqlConnector;
-
+using MessageBox = System.Windows.MessageBox;
 
 namespace PetClinic
 {
@@ -116,6 +117,47 @@ namespace PetClinic
             edadmascotatext.Text = String.Empty;
             pesomascotatext.Text = String.Empty;
             
+
+        }
+
+        public void btn_search_Click(object sender, RoutedEventArgs e)
+        {
+            var builder = new MySqlConnectionStringBuilder
+            {
+                Server = "vps.azuredragoon.com",
+                UserID = "dam2",
+                Password = "1234",
+                Database = "veterinaria",
+            };
+
+            var connection = new MySqlConnection(builder.ConnectionString);
+            connection.Open();
+
+            var command = connection.CreateCommand();
+            command.CommandText = @"SELECT mascota.nombre, mascota.raza, mascota.edad, mascota.peso, clientes.nombre as cliente from mascota
+INNER JOIN clientes ON DNI_Cliente = @dni";
+
+            
+            command.Parameters.AddWithValue("@dni", dnisearchtext.Text);
+
+            Console.WriteLine(command.ToString());
+
+            
+            int row = command.ExecuteNonQuery();
+
+            if(row > 0)
+            {
+                MySqlDataAdapter sda = new MySqlDataAdapter(command);
+                DataTable dt = new DataTable();
+                sda.Fill(dt);
+                mascotaGrid.ItemsSource = dt.DefaultView;
+
+            }
+            else
+            {
+                MessageBox.Show("No existen coincidencias");
+            }
+
 
         }
     }

@@ -588,13 +588,13 @@
                     <Border.Background>
                         <ImageBrush Stretch="Fill"
                                     Opacity="0.6"
-                                    ImageSource="/Images/page3.png" />
+                                    ImageSource="/Images/page4.png" />
                     </Border.Background>
 
 
                     <Grid>
                         <StackPanel Margin="20">
-                            <TextBlock Text="Registro"
+                            <TextBlock Text="Consulta"
                                        Foreground="White"
                                        FontSize="28"
                                        HorizontalAlignment="Left"
@@ -606,12 +606,91 @@
                                         HorizontalAlignment="Center">
 
 
-                                <!--Grid principal segunda página-->
-                                <Grid Width="650"
+                                <!--Grid principal tercera página-->
+                                <Grid Width="648"
                                       Height="470">
 
-                                </Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="60" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
 
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBox Width="200"
+                                             TextAlignment="Center"
+                                             HorizontalAlignment="Right"
+                                             Height="40"
+                                             FontSize="20"
+                                             Text="Inserte un DNI"
+                                             x:Name="dnisearchtext"
+                                             
+                                             Grid.Row="0"
+                                             Grid.Column="0" />
+
+                                    <Button Height="40"
+                                            HorizontalAlignment="Left"
+                                            Width="200"
+                                            Content="Buscar"
+                                            Margin="10"
+                                            FontSize="20"
+                                            Click="btn_search_Click"
+                                            Grid.Row="0"
+                                            Grid.Column="1" />
+
+                                    <StackPanel Grid.Row="1"
+                                                Grid.ColumnSpan="2"
+                                                HorizontalAlignment="Center"
+                                                Width="648">
+
+                                        <!-- Aqui iría la tabla con las mascotas -->
+                                        <!--Hay que hacer la parte del backend, investigar-->
+                                        
+                                        
+                                        <DataGrid x:Name="mascotaGrid"
+                                                  
+                                                  HorizontalAlignment="Center"
+                                                  Width="650">
+
+                                            
+
+                                            <DataGrid.Columns>
+
+                                                <DataGridTextColumn Header="DNI"
+                                                                    Width="108"
+                                                                    Binding="{Binding DNI_Cliente}" />
+
+                                                <DataGridTextColumn Header="Cliente"
+                                                                    Width="108"
+                                                                    Binding="{Binding mascota.nombre}" />
+
+                                                <DataGridTextColumn Header="Nombre"
+                                                                    Width="108"
+                                                                    Binding="{Binding nombre}" />
+
+                                                <DataGridTextColumn Header="Raza"
+                                                                    Width="108"
+                                                                    Binding="{Binding raza}" />
+
+                                                <DataGridTextColumn Header="Edad"
+                                                                    Width="108"
+                                                                    Binding="{Binding edad}" />
+                                                
+                                                <DataGridTextColumn Header="Peso"
+                                                                    Width="101"
+                                                                    Binding="{Binding peso}" />
+
+
+                                            </DataGrid.Columns>
+                                        </DataGrid>
+
+
+                                    </StackPanel>
+
+                                </Grid>
                             </StackPanel>
 
                         </StackPanel>
