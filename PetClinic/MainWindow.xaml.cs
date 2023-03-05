@@ -7,9 +7,6 @@ using System.Windows.Input;
 using MySqlConnector;
 
 
-
-
-
 namespace PetClinic
 {
     /// <summary>
@@ -97,8 +94,6 @@ namespace PetClinic
             int row = command.ExecuteNonQuery();
             int row2 = command2.ExecuteNonQuery();
 
-            
-
 
             if(row > 0 && row2 > 0)
             {
@@ -121,22 +116,6 @@ namespace PetClinic
             edadmascotatext.Text = String.Empty;
             pesomascotatext.Text = String.Empty;
             
-
-
-
-
-
-
-
-
-            //MessageBox.Show(cliente.DNI.ToString() + cliente.nombre.ToString() + cliente.apellidos.ToString());
-
-            //if (rowcliente > 0 && rowMascota > 0)
-            //{
-            //  MessageBox.Show("Registro realizado con éxito" + cliente.ToString() + " " + mascota.ToString() + cliente.DNI.ToString());
-            //}
-
-
 
         }
     }

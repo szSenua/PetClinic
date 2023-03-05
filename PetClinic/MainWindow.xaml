@@ -56,12 +56,22 @@
                                                              To="{Binding ElementName=window,Path=ActualHeight}"
                                                              Duration="0:0:0.3" />
 
+                                            <DoubleAnimation Storyboard.TargetName="thirdPage"
+                                                             Storyboard.TargetProperty="(Border.RenderTransform).(TranslateTransform.Y)"
+                                                             To="{Binding ElementName=window,Path=ActualHeight}"
+                                                             Duration="0:0:0.3" />
+
                                             <DoubleAnimation Storyboard.TargetName="mainPage"
                                                              Storyboard.TargetProperty="Opacity"
                                                              To="1.0"
                                                              Duration="0:0:0.5" />
 
                                             <DoubleAnimation Storyboard.TargetName="secondPage"
+                                                             Storyboard.TargetProperty="Opacity"
+                                                             To="0.0"
+                                                             Duration="0:0:0.5" />
+
+                                            <DoubleAnimation Storyboard.TargetName="thirdPage"
                                                              Storyboard.TargetProperty="Opacity"
                                                              To="0.0"
                                                              Duration="0:0:0.5" />
@@ -89,6 +99,11 @@
                                                              To="0"
                                                              Duration="0:0:0.5" />
 
+                                            <DoubleAnimation Storyboard.TargetName="thirdPage"
+                                                             Storyboard.TargetProperty="(Border.RenderTransform).(TranslateTransform.Y)"
+                                                             To="{Binding ElementName=window,Path=ActualHeight}"
+                                                             Duration="0:0:0.5" />
+
                                             <DoubleAnimation Storyboard.TargetName="mainPage"
                                                              Storyboard.TargetProperty="Opacity"
                                                              To="0.0"
@@ -97,6 +112,11 @@
                                             <DoubleAnimation Storyboard.TargetName="secondPage"
                                                              Storyboard.TargetProperty="Opacity"
                                                              To="1.0"
+                                                             Duration="0:0:0.5" />
+
+                                            <DoubleAnimation Storyboard.TargetName="thirdPage"
+                                                             Storyboard.TargetProperty="Opacity"
+                                                             To="0.0"
                                                              Duration="0:0:0.5" />
                                         </Storyboard>
                                     </BeginStoryboard>
@@ -108,9 +128,52 @@
                                    Width="20" />
                         </Button>
                         <Button Style="{StaticResource menuButton}">
+                            <Button.Triggers>
+                                <EventTrigger RoutedEvent="Button.Click">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <!--Aqui iría la animación de la tercera página con Double Animation-->
+                                            <DoubleAnimation Storyboard.TargetName="mainPage"
+                                                             Storyboard.TargetProperty="(Border.RenderTransform).(TranslateTransform.Y)"
+                                                             To="{Binding ElementName=window,Path=ActualHeight}"
+                                                             Duration="0:0:0.3" />
+
+                                            <DoubleAnimation Storyboard.TargetName="secondPage"
+                                                             Storyboard.TargetProperty="(Border.RenderTransform).(TranslateTransform.Y)"
+                                                             To="{Binding ElementName=window,Path=ActualHeight}"
+                                                             Duration="0:0:0.3" />
+
+                                            <DoubleAnimation Storyboard.TargetName="thirdPage"
+                                                             Storyboard.TargetProperty="(Border.RenderTransform).(TranslateTransform.Y)"
+                                                             To="0"
+                                                             Duration="0:0:0.5" />
+
+                                            <DoubleAnimation Storyboard.TargetName="mainPage"
+                                                             Storyboard.TargetProperty="Opacity"
+                                                             To="0.0"
+                                                             Duration="0:0:0.5" />
+
+                                            <DoubleAnimation Storyboard.TargetName="secondPage"
+                                                             Storyboard.TargetProperty="Opacity"
+                                                             To="0.0"
+                                                             Duration="0:0:0.5" />
+
+                                            <DoubleAnimation Storyboard.TargetName="thirdPage"
+                                                             Storyboard.TargetProperty="Opacity"
+                                                             To="1.0"
+                                                             Duration="0:0:0.5" />
+
+
+
+                                        </Storyboard>
+
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </Button.Triggers>
                             <Image Source="/Images/user_menu.png"
                                    Width="20" />
                         </Button>
+
                         <Button Style="{StaticResource menuButton}">
                             <Image Source="/Images/user_menu.png"
                                    Width="20" />
@@ -510,6 +573,61 @@
 
 
             </Border>
+            <!-- Termina la segunda página -->
+            
+            <!--Empieza la tercera página-->
+
+            <Border x:Name="thirdPage"
+                    Style="{StaticResource borderPage}">
+                <Border.RenderTransform>
+                    <TranslateTransform Y="{Binding ElementName=window,Path=ActualHeight}" />
+
+                </Border.RenderTransform>
+
+                <Border CornerRadius="25">
+                    <Border.Background>
+                        <ImageBrush Stretch="Fill"
+                                    Opacity="0.6"
+                                    ImageSource="/Images/page3.png" />
+                    </Border.Background>
+
+
+                    <Grid>
+                        <StackPanel Margin="20">
+                            <TextBlock Text="Registro"
+                                       Foreground="White"
+                                       FontSize="28"
+                                       HorizontalAlignment="Left"
+                                       Margin="0,0,0,20" />
+
+
+
+                            <StackPanel Orientation="Horizontal"
+                                        HorizontalAlignment="Center">
+
+
+                                <!--Grid principal segunda página-->
+                                <Grid Width="650"
+                                      Height="470">
+
+                                </Grid>
+
+                            </StackPanel>
+
+                        </StackPanel>
+
+
+
+
+
+                    </Grid>
+
+                </Border>
+
+
+            </Border>
+
+
 
         </Grid>
         
