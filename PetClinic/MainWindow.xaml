@@ -80,7 +80,7 @@
                                     
                                 </EventTrigger>
                             </Button.Triggers>
-                            <Image Source="/Images/home.png" 
+                            <Image Source="/Images/home30.png" 
                                    Width="20"/>
                         </Button>
                         <Button Style="{StaticResource menuButton}">
@@ -124,7 +124,7 @@
                                 </EventTrigger>
                             </Button.Triggers>
 
-                            <Image Source="/Images/user_menu.png"
+                            <Image Source="/Images/adduser.png"
                                    Width="20" />
                         </Button>
                         <Button Style="{StaticResource menuButton}">
@@ -170,12 +170,12 @@
                                     </BeginStoryboard>
                                 </EventTrigger>
                             </Button.Triggers>
-                            <Image Source="/Images/user_menu.png"
+                            <Image Source="/Images/analyze.png"
                                    Width="20" />
                         </Button>
 
                         <Button Style="{StaticResource menuButton}">
-                            <Image Source="/Images/user_menu.png"
+                            <Image Source="/Images/fingerprint.png"
                                    Width="20" />
                         </Button>
 
@@ -221,7 +221,7 @@
                     <Border.Background>
                         <ImageBrush Stretch="Fill"
                                     Opacity="0.6"
-                                    ImageSource="/Images/vet.png" />
+                                    ImageSource="/Images/principal.png" />
                     </Border.Background>
 
 

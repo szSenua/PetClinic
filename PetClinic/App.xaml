@@ -64,9 +64,7 @@
             <Setter Property="CornerRadius"
                     Value="25" />
 
-            <Setter Property="Background"
-                    Value="#000000" />
-
+            
             <Setter Property="Grid.Column"
                     Value="1" />
 

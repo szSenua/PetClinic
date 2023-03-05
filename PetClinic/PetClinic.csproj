@@ -138,7 +138,6 @@
   <ItemGroup>
     <Resource Include="Images\page2.png" />
     <Resource Include="Images\vet.png" />
-    <Resource Include="Images\petclinic.png" />
     <Resource Include="Images\logout.png" />
     <Resource Include="Images\user_menu_2.png" />
   </ItemGroup>
@@ -146,13 +145,40 @@
     <Resource Include="Images\user_menu.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\home.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\page3.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\page4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\home30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\search30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\analyze.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\adduser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\cat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\fingerprint.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\vetcat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\vetcat.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\mainpage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\principal.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
