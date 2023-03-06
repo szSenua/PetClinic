@@ -135,12 +135,16 @@ namespace PetClinic
 
             var command = connection.CreateCommand();
             command.CommandText = @"SELECT mascota.nombre, mascota.raza, mascota.edad, mascota.peso, clientes.nombre as cliente from mascota
-INNER JOIN clientes ON DNI_Cliente = @dni";
+            INNER JOIN clientes ON mascota.DNI_Cliente = clientes.DNI AND mascota.DNI_Cliente = @clientes.DNI";
 
             
-            command.Parameters.AddWithValue("@dni", dnisearchtext.Text);
 
-            Console.WriteLine(command.ToString());
+            
+            command.Parameters.AddWithValue("@clientes.DNI", dnisearchtext.Text);
+
+            //Console.WriteLine(dnisearchtext.Text);
+
+            MessageBox.Show(command.ToString());
 
             
             int row = command.ExecuteNonQuery();
@@ -148,9 +152,9 @@ INNER JOIN clientes ON DNI_Cliente = @dni";
             if(row > 0)
             {
                 MySqlDataAdapter sda = new MySqlDataAdapter(command);
-                DataTable dt = new DataTable();
-                sda.Fill(dt);
-                mascotaGrid.ItemsSource = dt.DefaultView;
+                DataSet ds = new DataSet();
+                sda.Fill(ds, "gridPet");
+                mascotaGrid.DataContext = ds;
 
             }
             else

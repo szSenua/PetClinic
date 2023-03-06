@@ -283,25 +283,25 @@
                                 <uc:Card Grid.Row="0"
                                          Grid.Column="0" 
                                          Margin="0 0 8 8"
-                                         ImageOn="/Images/home.png"
+                                         ImageOn="/Images/home30.png"
                                          ImageOff="/Images/user_menu_2.png"/>
 
                                 <uc:Card Grid.Row="0"
                                          Grid.Column="1"
                                          Margin="0 0 0 8"
-                                         ImageOn="/Images/home.png"
+                                         ImageOn="/Images/home30.png"
                                          ImageOff="/Images/user_menu_2.png" />
 
                                 <uc:Card Grid.Row="1"
                                          Grid.Column="0"
                                          Margin="0 0 0 0"
-                                         ImageOn="/Images/home.png"
+                                         ImageOn="/Images/home30.png"
                                          ImageOff="/Images/user_menu_2.png" />
 
                                 <uc:Card Grid.Row="1"
                                          Grid.Column="1"
                                          Margin="0 0 0 0"
-                                         ImageOn="/Images/home.png"
+                                         ImageOn="/Images/home30.png"
                                          ImageOff="/Images/user_menu_2.png" />
 
                             </Grid>
@@ -625,7 +625,7 @@
                                              HorizontalAlignment="Right"
                                              Height="40"
                                              FontSize="20"
-                                             Text="Inserte un DNI"
+                                             
                                              x:Name="dnisearchtext"
                                              
                                              Grid.Row="0"
@@ -653,7 +653,8 @@
                                         <DataGrid x:Name="mascotaGrid"
                                                   
                                                   HorizontalAlignment="Center"
-                                                  Width="650">
+                                                  Width="650"
+                                                  ItemsSource="{Binding gridPet}">
 
                                             
 
@@ -665,7 +666,7 @@
 
                                                 <DataGridTextColumn Header="Cliente"
                                                                     Width="108"
-                                                                    Binding="{Binding mascota.nombre}" />
+                                                                    Binding="{Binding clientes.nombre}" />
 
                                                 <DataGridTextColumn Header="Nombre"
                                                                     Width="108"
