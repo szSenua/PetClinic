@@ -61,10 +61,10 @@ namespace PetClinic
         {
             var builder = new MySqlConnectionStringBuilder
             {
-                Server = "vps.azuredragoon.com",
-                UserID = "dam2",
-                Password = "1234",
-                Database = "veterinaria",
+                Server = "server",
+                UserID = "user",
+                Password = "pass",
+                Database = "db",
             };
 
             var connection = new MySqlConnection(builder.ConnectionString);
