@@ -20,16 +20,13 @@ La vista con menú lateral me permite agregar funcionalidad en el caso de creerl
 
 - Menú lateral ampliable
 - Función de búsqueda de un cliente por DNI 
-- Mostrar tanto los datos del cliente como de la mascota asociada al mismo en el caso de introducir un DNI que coincida. (En proceso))
+- Mostrar tanto los datos del cliente como de la mascota asociada al mismo en el caso de introducir un DNI que coincida.
+- Función cerrar el programa por medio de botón.
+- Settings (En proceso)
 
-# Funcionalidad esperada
-
-- Mostrar un fichero con el expediente de la mascota
-- Sobreescritura de dicho fichero
 
 # Posibles modificaciones
-- Vista con DataGrid para controlar el que un cliente tenga varias mascotas
-- Suprimir en el apartado "Consulta" la información de la mascota en consecuencia.
+- Vista con DataGrid para controlar el que un cliente tenga varias mascotas (Añadida)
 
 Más por llegar... Mientras tanto no olvides visitar
 
