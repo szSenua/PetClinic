@@ -175,21 +175,6 @@
                                    Width="20" />
                         </Button>
 
-                        <Button Style="{StaticResource menuButton}">
-                            <Image Source="/Images/fingerprint.png"
-                                   Width="20" />
-                        </Button>
-
-                        <Button Style="{StaticResource menuButton}">
-                            <Image Source="/Images/user_menu.png"
-                                   Width="20" />
-                        </Button>
-
-                        <Button Style="{StaticResource menuButton}">
-                            <Image Source="/Images/user_menu.png"
-                                   Width="20" />
-                        </Button>
-
 
 
                     </StackPanel>
