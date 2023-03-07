@@ -61,10 +61,10 @@ namespace PetClinic
         {
             var builder = new MySqlConnectionStringBuilder
             {
-                Server = "vps.azuredragoon.com",
-                UserID = "dam2",
-                Password = "1234",
-                Database = "veterinaria",
+                Server = "server",
+                UserID = "user",
+                Password = "pass",
+                Database = "db",
             };
 
             var connection = new MySqlConnection(builder.ConnectionString);
@@ -120,50 +120,53 @@ namespace PetClinic
 
         }
 
+        //Función que busca en una bbdd un dni concreto y muestra el resultado en un DataGrid
         public void btn_search_Click(object sender, RoutedEventArgs e)
         {
             var builder = new MySqlConnectionStringBuilder
             {
-                Server = "vps.azuredragoon.com",
-                UserID = "dam2",
-                Password = "1234",
-                Database = "veterinaria",
+                Server = "server",
+                UserID = "user",
+                Password = "pass",
+                Database = "db",
             };
 
             var connection = new MySqlConnection(builder.ConnectionString);
             connection.Open();
 
-            var command = connection.CreateCommand();
-            command.CommandText = @"SELECT mascota.nombre, mascota.raza, mascota.edad, mascota.peso, clientes.nombre as cliente from mascota
-            INNER JOIN clientes ON mascota.DNI_Cliente = clientes.DNI AND mascota.DNI_Cliente = @clientes.DNI";
 
-            
-
-            
-            command.Parameters.AddWithValue("@clientes.DNI", dnisearchtext.Text);
-
-            //Console.WriteLine(dnisearchtext.Text);
-
-            MessageBox.Show(command.ToString());
-
-            
-            int row = command.ExecuteNonQuery();
-
-            if(row > 0)
-            {
-                MySqlDataAdapter sda = new MySqlDataAdapter(command);
-                DataSet ds = new DataSet();
-                sda.Fill(ds, "gridPet");
-                mascotaGrid.DataContext = ds;
-
-            }
-            else
-            {
-                MessageBox.Show("No existen coincidencias");
-            }
+            MySqlCommand command = new MySqlCommand(@"SELECT mascota.nombre, mascota.raza, mascota.edad, mascota.peso, clientes.nombre as cliente from mascota
+            INNER JOIN clientes ON mascota.DNI_Cliente = clientes.DNI AND mascota.DNI_Cliente = @DNI");
 
 
+
+
+            command.Parameters.AddWithValue("@DNI", dnisearchtext.Text);
+
+            command.Connection = connection;
+            command.CommandType = CommandType.Text;
+
+
+
+
+
+            MySqlDataAdapter sda = new MySqlDataAdapter(command);
+            DataSet ds = new DataSet();
+            sda.Fill(ds, "gridPet");
+            mascotaGrid.DataContext = ds;
+
+
+
+        }
+
+        //Función que cierra el programa
+        public void btn_close_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 
 }
+
+
+

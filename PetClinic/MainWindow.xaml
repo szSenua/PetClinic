@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        ResizeMode="CanResizeWithGrip"
         
         xmlns:uc="clr-namespace:PetClinic.UserControls"
         mc:Ignorable="d"
@@ -197,7 +198,8 @@
 
                     <Button Style="{StaticResource menuButton}"
                             Margin="15 0 15 25"
-                            VerticalAlignment="Bottom">
+                            VerticalAlignment="Bottom"
+                            Click="btn_close_Click">
                         <Image Source="/Images/logout.png"
                                Width="20" />
                     </Button>
@@ -651,10 +653,10 @@
                                         
                                         
                                         <DataGrid x:Name="mascotaGrid"
+                                                  ItemsSource="{Binding XPath=gridPet}"
                                                   
                                                   HorizontalAlignment="Center"
-                                                  Width="650"
-                                                  ItemsSource="{Binding gridPet}">
+                                                  Width="650">
 
                                             
 
