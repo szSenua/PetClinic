@@ -182,7 +182,7 @@ namespace PetClinic
                 // Escribir el elemento raíz
                 writer.WriteStartElement("configuracion");
 
-                // Escribir el elemento para el tamaño
+                // Escribir el elemento para el color
                 writer.WriteStartElement("Foreground");
                 writer.WriteString(selectedTheme);
                 writer.WriteEndElement();
