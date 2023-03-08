@@ -13,6 +13,8 @@ La vista con menú lateral me permite agregar funcionalidad en el caso de creerl
 # Funcionalidad añadida por el momento
 
 - Menú lateral ampliable
+- La ventana se maximiza haciendo doble click sobre ella
+- La ventana se puede arrastrar mateniendo pulsado el ratón.
 - Función de búsqueda de un cliente por DNI 
 - Mostrar tanto los datos del cliente como de la mascota asociada al mismo en el caso de introducir un DNI que coincida.
 - Función cerrar el programa por medio de botón.
