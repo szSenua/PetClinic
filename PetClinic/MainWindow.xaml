@@ -217,42 +217,34 @@
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="auto" />
                         </Grid.ColumnDefinitions>
-                        
+
                         <!-- Titulos -->
                         <StackPanel VerticalAlignment="Center"
-                                    Margin="60 0 0 0">
+                                    Margin="60 280 0 0">
 
-                            <TextBlock Text="Controlling"
-                                       Foreground="#FFFFFF"
-                                       FontSize="22"/>
 
-                            <TextBlock Text="Texto 2"
+
+                            <TextBlock Text="No te la juegues con su salud"
                                        Foreground="#ffffff" 
                                        Margin="0 10"
                                        FontSize="36"
                                        FontWeight="Bold"
-                                       TextWrapping="Wrap"/>
+                                       TextWrapping="Wrap"
+                                       x:Name="pet"/>
 
                             <TextBlock Foreground="#ffffff"
                                        FontSize="32">
-                                <Run Text="32" /><Run FontWeight="Thin"
-                                                      FontSize="26" 
-                                                      Text="ºc"/>
-                            </TextBlock>
-                            <TextBlock Text="Celecious"
-                                       Foreground="#ffffff"
-                                       FontSize="12"
-                                       Margin="15 0 0 0">
-                                
-                                
+
                             </TextBlock>
 
+
+
                         </StackPanel>
-                        
+
                         <!-- Paneles -->
                         <StackPanel Grid.Column="1" 
                                     VerticalAlignment="Center"
-                                    Margin="0 0 50 0">
+                                    Margin="0 0 50 30">
 
                             <Grid>
                                 <Grid.ColumnDefinitions>
@@ -264,48 +256,89 @@
                                     <RowDefinition Height="*" />
                                     <RowDefinition Height="*" />
                                 </Grid.RowDefinitions>
-                                
+
                                 <!--Cards-->
 
                                 <uc:Card Grid.Row="0"
                                          Grid.Column="0" 
                                          Margin="0 0 8 8"
-                                         ImageOn="/Images/home30.png"
-                                         ImageOff="/Images/user_menu_2.png"/>
+                                         
+                                        />
 
                                 <uc:Card Grid.Row="0"
                                          Grid.Column="1"
                                          Margin="0 0 0 8"
-                                         ImageOn="/Images/home30.png"
-                                         ImageOff="/Images/user_menu_2.png" />
+                                          />
 
                                 <uc:Card Grid.Row="1"
                                          Grid.Column="0"
                                          Margin="0 0 0 0"
-                                         ImageOn="/Images/home30.png"
-                                         ImageOff="/Images/user_menu_2.png" />
+                                          />
 
                                 <uc:Card Grid.Row="1"
                                          Grid.Column="1"
                                          Margin="0 0 0 0"
-                                         ImageOn="/Images/home30.png"
-                                         ImageOff="/Images/user_menu_2.png" />
+                                          />
 
                             </Grid>
-                            
-                            <!--Button-->
 
-                            <uc:AddButton Title="Añade algo"
-                                          Grid.Column="1"
-                                          Margin="0 50 0 0"
-                                          HorizontalAlignment="Center" />
+
+
+
+
 
                         </StackPanel>
+
+                        <StackPanel Grid.Column="1" 
+                Grid.Row="1"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom"
+                Margin="0 0 50 50">
+
+                            <ComboBox x:Name="colorComboBox" 
+                                      HorizontalAlignment="Left" 
+                                      VerticalAlignment="Top" 
+                                      Width="300"
+                                      Margin="0 0 0 5"
+                                      
+                                      
+                                      Padding="16"
+                                      FontSize="20"
+                                      FontWeight="Bold">
+                                <ComboBoxItem Content="Red"/>
+                                <ComboBoxItem Content="Orange"/>
+                                <ComboBoxItem Content="Brown"/>
+                                <ComboBoxItem Content="AliceBlue"/>
+
+                            </ComboBox>
+                            <Button Content="Aplicar cambios"
+                            
+                            Margin="0 0 0 0"
+                            FontSize="20"
+                                    Height="70"   
+                            HorizontalContentAlignment="Center"
+                            FontWeight="Bold"
+                                    Background="#311804"
+                                    Foreground="#ffffff"
+                                    Click="apply_Click">
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="Button">
+                                                    <Border BorderThickness="2" CornerRadius="10" Background="{TemplateBinding Background}">
+                                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
+                        </StackPanel>
                     </Grid>
-                    
                 </Border>
-                
-                
+
             </Border>
             <!--Termina página principal-->
             

@@ -81,6 +81,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Configuracion.cs" />
     <Compile Include="UserControls\AddButton.xaml.cs">
       <DependentUpon>AddButton.xaml</DependentUpon>
     </Compile>
@@ -179,6 +180,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\principal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Dictionaries\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

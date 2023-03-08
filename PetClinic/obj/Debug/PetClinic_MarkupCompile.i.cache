@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Cristina\source\repos\PetClinic\PetClinic\obj\Debug\
+C:\Users\Cristina\source\repos\PetClinic2\PetClinic\obj\Debug\
 PetClinic
 none
 false
 DEBUG;TRACE
-C:\Users\Cristina\source\repos\PetClinic\PetClinic\App.xaml
+C:\Users\Cristina\source\repos\PetClinic2\PetClinic\App.xaml
 3-50194203
 
-8-2042809353
-23-270581551
+9-1323151800
+23-2055770346
 MainWindow.xaml;UserControls\AddButton.xaml;UserControls\Card.xaml;
 
-False
+True
 

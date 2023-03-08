@@ -3,8 +3,11 @@ using System;
 using System.Data;
 using System.Diagnostics;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Xml;
 using MySqlConnector;
 using MessageBox = System.Windows.MessageBox;
 
@@ -18,6 +21,8 @@ namespace PetClinic
         public MainWindow()
         {
             InitializeComponent();
+            Configuracion.LeerXML();
+            pet.Foreground = Configuracion.DefaultForeground;
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
@@ -159,14 +164,77 @@ namespace PetClinic
 
         }
 
+        private void apply_Click(object sender, RoutedEventArgs e)
+        {
+            string selectedTheme = (colorComboBox.SelectedItem as ComboBoxItem)?.Content as string;
+            System.Windows.Media.Brush brush = System.Windows.Media.Brushes.Black;
+            if (!string.IsNullOrEmpty(selectedTheme))
+            {
+                brush = (Brush)new System.Windows.Media.BrushConverter().ConvertFromString(selectedTheme);
+            }
+            pet.Foreground = brush;
+
+            using (XmlWriter writer = XmlWriter.Create("config.xml"))
+            {
+                // Escribir el encabezado del archivo XML
+                writer.WriteStartDocument();
+
+                // Escribir el elemento raíz
+                writer.WriteStartElement("configuracion");
+
+                // Escribir el elemento para el tamaño
+                writer.WriteStartElement("Foreground");
+                writer.WriteString(selectedTheme);
+                writer.WriteEndElement();
+
+                writer.WriteEndElement();
+                System.Windows.Forms.Application.Restart();
+                MessageBox.Show("Cambios Aplicados", "Configuracion", (MessageBoxButton)MessageBoxButtons.OK);
+
+                // Cerrar el archivo XML
+                writer.WriteEndDocument();
+            }
+        }
+
+        private void test_Click(object sender, RoutedEventArgs e)
+        {
+            // Obtener el valor seleccionado en el ComboBox
+            string selectedTheme = (colorComboBox.SelectedItem as ComboBoxItem)?.Content as string;
+
+            // Asignar el color correspondiente al TextBlock
+            switch (selectedTheme)
+            {
+                case "Red":
+                    pet.Foreground = System.Windows.Media.Brushes.Red;
+                    break;
+                case "Orange":
+                    pet.Foreground = System.Windows.Media.Brushes.Orange;
+                    break;
+                case "Brown":
+                    pet.Foreground = System.Windows.Media.Brushes.Brown;
+                    break;
+
+                case "AliceBlue":
+                    pet.Foreground = System.Windows.Media.Brushes.AliceBlue;
+                    break;
+                default:
+                    pet.Foreground = System.Windows.Media.Brushes.White; // Valor predeterminado
+                    break;
+            }
+        }
+
+
+
         //Función que cierra el programa
         public void btn_close_Click(object sender, RoutedEventArgs e)
         {
+            Properties.Settings.Default.Save();
             this.Close();
         }
     }
-
 }
+
+
 
 
 
