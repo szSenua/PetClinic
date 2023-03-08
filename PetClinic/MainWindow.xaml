@@ -284,19 +284,13 @@
                             </Grid>
 
 
-
-
-
-
-                        </StackPanel>
-
-                        <StackPanel Grid.Column="1" 
+                            <StackPanel Grid.Column="1" 
                 Grid.Row="1"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Bottom"
                 >
 
-                        <ComboBox x:Name="colorComboBox" 
+                                <ComboBox x:Name="colorComboBox" 
                                       HorizontalAlignment="Left" 
                                       VerticalAlignment="Top" 
                                       Width="300"
@@ -304,13 +298,13 @@
                                       Padding="16"
                                       FontSize="20"
                                       FontWeight="Bold">
-                                <ComboBoxItem Content="Red"/>
-                                <ComboBoxItem Content="Orange"/>
-                                <ComboBoxItem Content="Brown"/>
-                                <ComboBoxItem Content="AliceBlue"/>
+                                    <ComboBoxItem Content="Red"/>
+                                    <ComboBoxItem Content="Orange"/>
+                                    <ComboBoxItem Content="Brown"/>
+                                    <ComboBoxItem Content="AliceBlue"/>
 
-                            </ComboBox>
-                            <Button Content="Aplicar cambios"
+                                </ComboBox>
+                                <Button Content="Aplicar cambios"
                             
                             Margin="0 0 0 0"
                             FontSize="20"
@@ -320,21 +314,27 @@
                                     Background="#311804"
                                     Foreground="#ffffff"
                                     Click="apply_Click">
-                                <Button.Style>
-                                    <Style TargetType="Button">
-                                        <Setter Property="Template">
-                                            <Setter.Value>
-                                                <ControlTemplate TargetType="Button">
-                                                    <Border BorderThickness="2" CornerRadius="10" Background="{TemplateBinding Background}">
-                                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                                    </Border>
-                                                </ControlTemplate>
-                                            </Setter.Value>
-                                        </Setter>
-                                    </Style>
-                                </Button.Style>
-                            </Button>
+                                    <Button.Style>
+                                        <Style TargetType="Button">
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="Button">
+                                                        <Border BorderThickness="2" CornerRadius="10" Background="{TemplateBinding Background}">
+                                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                                        </Border>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </Button.Style>
+                                </Button>
+                            </StackPanel>
+
+
+
                         </StackPanel>
+
+                       
                     </Grid>
                 </Border>
 
