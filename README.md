@@ -23,10 +23,10 @@ La vista con menú lateral me permite agregar funcionalidad en el caso de creerl
 - Mostrar tanto los datos del cliente como de la mascota asociada al mismo en el caso de introducir un DNI que coincida.
 - Función cerrar el programa por medio de botón.
 - La aplicación guarda en un xml configuraciones de color para las letras de la pantalla principal y es capaz de leerlo antes de volver a iniciarla. Manteniendo el color de letra escogido por el usuario.
+- Datagrid que muestra información de las mascotas.
 
 
-# Posibles modificaciones
-- Vista con DataGrid para controlar el que un cliente tenga varias mascotas (Añadida)
+
 
 Más por llegar... Mientras tanto no olvides visitar
 
