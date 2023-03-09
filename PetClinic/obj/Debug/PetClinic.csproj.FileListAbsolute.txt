@@ -106,3 +106,4 @@ C:\Users\Cristina\source\repos\PetClinic2\PetClinic\obj\Debug\PetClinic.csproj.C
 C:\Users\Cristina\source\repos\PetClinic2\PetClinic\obj\Debug\PetClinic.csproj.CopyComplete
 C:\Users\Cristina\source\repos\PetClinic2\PetClinic\obj\Debug\PetClinic.exe
 C:\Users\Cristina\source\repos\PetClinic2\PetClinic\obj\Debug\PetClinic.pdb
+C:\Users\Cristina\source\repos\PetClinic2\PetClinic\obj\Debug\Dictionaries\DatagridCenter.baml

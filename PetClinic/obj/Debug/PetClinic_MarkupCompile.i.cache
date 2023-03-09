@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Cristina\source\repos\PetClinic2\PetClinic\App.xaml
-3-50194203
+4-454504763
 
 9-1323151800
 23-2055770346
-MainWindow.xaml;UserControls\AddButton.xaml;UserControls\Card.xaml;
+Dictionaries\DatagridCenter.xaml;MainWindow.xaml;UserControls\AddButton.xaml;UserControls\Card.xaml;
 
-False
+True
 

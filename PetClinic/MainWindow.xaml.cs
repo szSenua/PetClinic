@@ -140,8 +140,10 @@ namespace PetClinic
             connection.Open();
 
 
-            MySqlCommand command = new MySqlCommand(@"SELECT mascota.nombre, mascota.raza, mascota.edad, mascota.peso, clientes.nombre as cliente from mascota
-            INNER JOIN clientes ON mascota.DNI_Cliente = clientes.DNI AND mascota.DNI_Cliente = @DNI");
+            MySqlCommand command = new MySqlCommand(@"SELECT DISTINCT mascota.DNI_Cliente as DNI, mascota.nombre as Nombre, mascota.raza as Raza, mascota.edad as Edad, mascota.peso as Peso, clientes.nombre as Cliente  from mascota " +
+
+            "INNER JOIN clientes ON mascota.DNI_Cliente = clientes.DNI "+
+            "AND mascota.DNI_Cliente = @DNI");
 
 
 
@@ -150,6 +152,8 @@ namespace PetClinic
 
             command.Connection = connection;
             command.CommandType = CommandType.Text;
+
+           
 
 
 

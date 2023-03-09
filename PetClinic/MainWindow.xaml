@@ -13,6 +13,11 @@
         WindowStyle="None"
         AllowsTransparency="True"
         Name="window">
+
+
+    
+
+
     <Border Background="White"
             Padding="30"
             CornerRadius="25"
@@ -679,42 +684,47 @@
                                         
                                         
                                         <DataGrid x:Name="mascotaGrid"
-                                                  ItemsSource="{Binding XPath=gridPet}"
-                                                  
+                                                  AutoGenerateColumns="False"
+                                                  ItemsSource="{Binding Path=gridPet}"
+                                                 
                                                   HorizontalAlignment="Center"
                                                   Width="650">
-
                                             
 
+
+
+
                                             <DataGrid.Columns>
-
                                                 <DataGridTextColumn Header="DNI"
-                                                                    Width="108"
-                                                                    Binding="{Binding DNI_Cliente}" />
-
+                            Width="*"
+                                                                    
+                            Binding="{Binding DNI}" />
                                                 <DataGridTextColumn Header="Cliente"
-                                                                    Width="108"
-                                                                    Binding="{Binding clientes.nombre}" />
+                            Width="*"
+                            Binding="{Binding Cliente}" />
 
                                                 <DataGridTextColumn Header="Nombre"
-                                                                    Width="108"
-                                                                    Binding="{Binding nombre}" />
+                            Width="*"
+                            Binding="{Binding Nombre}" />
 
                                                 <DataGridTextColumn Header="Raza"
-                                                                    Width="108"
-                                                                    Binding="{Binding raza}" />
+                            Width="*"
+                            Binding="{Binding Raza}" />
 
                                                 <DataGridTextColumn Header="Edad"
-                                                                    Width="108"
-                                                                    Binding="{Binding edad}" />
-                                                
+                            Width="*"
+                            Binding="{Binding Edad}" />
+
                                                 <DataGridTextColumn Header="Peso"
-                                                                    Width="101"
-                                                                    Binding="{Binding peso}" />
+                            Width="*"
+                            Binding="{Binding Peso}" />
 
-
+                                                
                                             </DataGrid.Columns>
                                         </DataGrid>
+
+
+                                        
 
 
                                     </StackPanel>
