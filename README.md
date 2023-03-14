@@ -6,11 +6,7 @@ Aplicación que imita el sistema de una clínica veterinaria.
 
 ![c-sharp(1)](https://user-images.githubusercontent.com/87225960/222012640-7173cc13-1eec-4f43-80e5-a983c926f4eb.png) ![visual-studio(1)](https://user-images.githubusercontent.com/87225960/222012371-e3b5e827-a504-4ad6-b67f-2a95e1415d2b.png) ![servidor-sql](https://user-images.githubusercontent.com/87225960/222012391-816973fc-e1be-4023-bda5-2882c0b47f42.png)
 
-# Posibles mejoras
-
-La vista con menú lateral me permite agregar funcionalidad en el caso de creerlo interesante y/o necesario. Mi objetivo es que mi aplicación cubra todas las necesidades posibles de una clínica veterinaria de forma dinámica, un manejo simple y un aspecto visual atractivo sin perder cierta formalidad.
-
-# Funcionalidad añadida por el momento
+# Funcionalidad
 
 - Menú lateral ampliable
 - La ventana se maximiza haciendo doble click sobre ella
@@ -21,9 +17,3 @@ La vista con menú lateral me permite agregar funcionalidad en el caso de creerl
 - La aplicación guarda en un xml configuraciones de color para las letras de la pantalla principal y es capaz de leerlo antes de volver a iniciarla. Manteniendo el color de letra escogido por el usuario.
 - Datagrid que muestra información de las mascotas.
 
-
-
-
-Más por llegar... Mientras tanto no olvides visitar
-
-[Asylum](https://asylum1.odoo.com/)
